@@ -1,4 +1,4 @@
-package dev.bira.CadastroDePessoas;
+package dev.bira.CadastroDePessoas.Pessoas;
 
 import jakarta.persistence.*;
 
