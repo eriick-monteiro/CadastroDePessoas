@@ -2,11 +2,17 @@ package dev.bira.CadastroDePessoas.Pessoas;
 
 import dev.bira.CadastroDePessoas.Tarefas.TarefaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity // Entity transforma uma Classe em uma Entidade do Banco de Dados
 @Table(name = "tb_cadastro_pessoa") // Table define o nome da tabela
+@NoArgsConstructor // Cria o Constructor sem argumentos
+@AllArgsConstructor // Cria o Constructor com todos os argumentos
+@Data // Cria os Getters e os Setters
 public class PessoaModel {
 
     @Id
@@ -20,37 +26,4 @@ public class PessoaModel {
     @ManyToOne
     @JoinColumn(name = "tarefas_id") // Foreign Key - Chave Estrangeira
     private TarefaModel tarefas;
-
-    public PessoaModel() {
-    }
-
-    public PessoaModel(String nome, int idade, char sexo) {
-        this.nome = nome;
-        this.idade = idade;
-        this.sexo = sexo;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public char getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
-    }
 }
