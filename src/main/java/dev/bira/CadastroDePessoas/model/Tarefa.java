@@ -1,17 +1,17 @@
-package dev.bira.CadastroDePessoas.Tarefas;
+package dev.bira.CadastroDePessoas.model;
 
-import dev.bira.CadastroDePessoas.Pessoas.PessoaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
 
 @Entity
-@Table(name = "tb_cadastro_tarefeas")
+@Table(name = "tb_cadastro_tarefa")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class TarefaModel {
+public class Tarefa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +20,7 @@ public class TarefaModel {
     private String dificuldade;
 
     // O2M - Uma Tarefa tem várias Pessoas
-    @OneToMany(mappedBy = "tarefas")
-    private List<PessoaModel> pessoas;
+    @OneToMany(mappedBy = "tarefa")
+    @JsonIgnore
+    private List<Pessoa> pessoa;
 }
